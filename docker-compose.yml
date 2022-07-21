@@ -7,7 +7,6 @@ services:
       - ./php/src:/var/www/html/
     ports:
       - 80:80
-      - 443:443
   database:
     container_name: database
     image: mysql
