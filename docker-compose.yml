@@ -3,8 +3,13 @@ services:
   web-server:
     container_name: php-apache
     image: php:8.0-apache
+    # Currently Dockerfile doesn't work - we want this to copy all files from setup_files to the root web directory
+    # build: 
+    #   dockerfile: Dockerfile
+    #   context: '.'
     volumes:
-      - ./php/src:/var/www/html/
+      # root_web_dir to be used for multiple web projects
+      - ../root_web_dir:/var/www/html/
     ports:
       - 80:80
   database:
